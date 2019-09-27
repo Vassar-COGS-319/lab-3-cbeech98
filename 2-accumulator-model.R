@@ -16,7 +16,22 @@
 
 accumulator.model <- function(samples, rate.1=40, rate.2=40, criterion=3){
   
-
+  accuracy.array <- vector()
+  rt.array <- vector()
+  
+  for(i in 1:samples) {
+    p_es <- 0
+    n_es <- 0
+    counter <- 0
+    while(p_es <= criterion & n_es <= criterion) {
+      p_es <- p_es + rexp(1, rate.1)
+      n_es <- n_es + rexp(1, rate.2)
+      counter <- counter + 1
+    }
+    accuracy.array[i] <- if_else(p_es > n_es, TRUE, FALSE)
+    rt.array[i] <- counter
+  }
+  
   output <- data.frame(
     correct = accuracy.array,
     rt = rt.array
