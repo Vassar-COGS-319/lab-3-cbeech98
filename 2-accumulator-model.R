@@ -23,7 +23,8 @@ accumulator.model <- function(samples, rate.1=40, rate.2=40, criterion=3){
     p_es <- 0
     n_es <- 0
     counter <- 0
-    while(p_es <= criterion & n_es <= criterion) {
+    #Changed <= to < so that if  either es==criterion, we leave the while loop
+    while(p_es < criterion & n_es < criterion) {
       p_es <- p_es + rexp(1, rate.1)
       n_es <- n_es + rexp(1, rate.2)
       counter <- counter + 1
