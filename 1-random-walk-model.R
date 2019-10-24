@@ -27,7 +27,8 @@ random.walk.model <- function(samples, drift=0, sdrw=0.3, criterion=3){
   for(i in 1:samples) {
     es <- 0
     counter <- 0
-    while(abs(es) <= criterion) {
+    #Changed <= to < so that if abs(es)==criterion, we leave the while loop
+    while(abs(es) < criterion) {
       es <- es + rnorm(1, mean=drift, sd=sdrw)
       counter <- counter + 1
     }
