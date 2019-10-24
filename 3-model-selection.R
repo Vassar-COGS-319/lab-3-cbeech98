@@ -60,7 +60,11 @@ hist(acc.incorrect.rt)
 
 par(mfrow=c(1,1))
 
-# Based on these distributions, we could use the range of predicted reaction times
-# to evaluate which model is a better descriptor of the data for the experiment. 
-# For the accumulator model, the range is much smaller (~200 to 300), so we would 
-# likely consider it a more precise and therefore better model.
+# Based on these distributions, we could use the range of predicted reaction 
+# times to evaluate which model is a better descriptor of the data for the 
+# experiment. For the accumulator model, the range is much smaller (~200 to 
+# 300). If the range of reaction times observed in the data is also small, we 
+# would likely prefer this model.
+
+# I amended my response to this last question because I realized that the model
+# with less variable predicted reaction times might not always be desirable.
